@@ -1,0 +1,206 @@
+ //truchetRandomColors2.pde
+
+import processing.pdf.*;
+
+int tileSize = 100;
+int rows = 6;
+int cols = 6;
+int tileSize3 = 50;
+int rows3 = 12;
+int cols3 = 12;
+Tile1[][] tiles1 = new Tile1[rows][cols];
+Tile2[][] tiles2 = new Tile2[rows][cols];
+Tile3[][] tiles3 = new Tile3[rows3][cols3];
+Tile4[][] tiles4 = new Tile4[rows3][cols3];
+Tile5[][] tiles5 = new Tile5[rows3][cols3];
+Tile6[][] tiles6 = new Tile6[rows][cols];
+
+//color[] palette = {#000000, #00B2CA, #646464, #C8C8C8, #C8C8C8, #00B2CA, #00B2CA};
+//color[] palette = {#eed9e4, #e3cae5, #dedce9, #e8e1ee, #e3cae5, #e3cae5};
+//color[] palette = {#B3B3B3, #646464, #82AEB1, #DDE7C7, #DFE0DC, #DDE7C7, #FFFABA};
+color[] palette = { #F5E0B7, #DBAD6A, #698996, #DFE0DC, #B3B3B3, #DBAD6A, #698996, #698996};
+
+
+void setup () {
+  size(tileSize*rows, tileSize*cols, PDF, "Baby Quilt.pdf");
+  smooth();
+  background(palette[1]);
+  
+  for (int i=0; i<rows; i++){
+    for (int j=0; j<cols; j++) {
+      tiles1[i][j] = new Tile1(j*tileSize, i*tileSize, tileSize);
+      tiles2[i][j] = new Tile2(j*tileSize, i*tileSize, tileSize);
+      tiles3[i][j] = new Tile3(j*tileSize3, i*tileSize3, tileSize3);
+      tiles4[i][j] = new Tile4(j*tileSize3, i*tileSize3, tileSize3);
+      tiles5[i][j] = new Tile5(j*tileSize3, i*tileSize3, tileSize3);
+      tiles6[i][j] = new Tile6(j*tileSize, i*tileSize, tileSize);
+      tiles2[i][j].display();
+      tiles4[i][j].display();
+      tiles1[i][j].display();
+      tiles3[i][j].display();
+      tiles5[i][j].display();
+      tiles6[i][j].display();
+      
+    } //end for loop
+  } //end for loop
+} //end setup
+
+class Tile1 {
+  int sz; //size of tile
+  int x; //x-coords of topleft corner on tile
+  int y; //y-coords of topleft corner on tile
+  int orient; // orientation of tile
+  
+  Tile1 (int x, int y, int w) {
+    this.x = x;
+    this.y = y;
+    sz = w;
+    orient = int(random(0,3));
+   } //end Tile
+  
+  void display() {
+    fill(palette[0]);
+    stroke(palette[0]);
+    pushMatrix();
+    translate (x,y); //move to tile's x-y location (upper left corner)
+    translate(sz/2, sz/2); //move to the center of the tile
+    rotate(orient*PI/2); //rotate by the appropriate angle
+    translate(-sz/2, -sz/2); //move back to the upper left corner
+    triangle(sz, 0, sz, sz, 0, sz);
+    popMatrix();
+  } //end display
+} //end class Tile
+
+class Tile2 {
+  int sz; //size of tile
+  int x; //x-coords of topleft corner on tile
+  int y; //y-coords of topleft corner on tile
+  int orient; // orientation of tile
+  
+  Tile2 (int x, int y, int w) {
+    this.x = x;
+    this.y = y;
+    sz = w;
+    orient = int(random(0,3));
+   } //end Tile
+  
+  void display() {
+    fill(palette[2]);
+    stroke(palette[2]);
+    pushMatrix();
+    translate (x,y); //move to tile's x-y location (upper left corner)
+    translate(sz/2, sz/2); //move to the center of the tile
+    rotate(orient*PI/2); //rotate by the appropriate angle
+    translate(-sz/2, -sz/2); //move back to the upper left corner
+    triangle(sz, 0, sz, sz, 0, sz);
+    popMatrix();
+  } //end display
+} //end class Tile
+
+class Tile3 {
+  int sz; //size of tile
+  int x; //x-coords of topleft corner on tile
+  int y; //y-coords of topleft corner on tile
+  int orient; // orientation of tile
+  
+  Tile3 (int x, int y, int w) {
+    this.x = x;
+    this.y = y;
+    sz = w;
+    orient = int(random(0,3));
+   } //end Tile
+  
+  void display() {
+    fill(palette[3]);
+    stroke(palette[3]);
+    pushMatrix();
+    translate (x*2,y*2); //move to tile's x-y location (upper left corner)
+    translate(sz/2, sz/2); //move to the center of the tile
+    rotate(orient*PI/2); //rotate by the appropriate angle
+    translate(-sz/2, -sz/2); //move back to the upper left corner
+    triangle(sz, 0, sz, sz, 0, sz);
+    popMatrix();
+  } //end display
+} //end class Tile
+
+
+class Tile4 {
+  int sz; //size of tile
+  int x; //x-coords of topleft corner on tile
+  int y; //y-coords of topleft corner on tile
+  int orient; // orientation of tile
+  
+  Tile4 (int x, int y, int w) {
+    this.x = x;
+    this.y = y;
+    sz = w;
+    orient = int(random(0,7));
+   } //end Tile
+  
+  void display() {
+    fill(palette[0]);
+    stroke(palette[0]);
+    pushMatrix();
+    translate (x*2,y*2); //move to tile's x-y location (upper left corner)
+    translate(sz/2, sz/2); //move to the center of the tile
+    rotate(orient*PI/2); //rotate by the appropriate angle
+    translate(-sz/2, -sz/2); //move back to the upper left corner
+    triangle(sz, 0, sz, sz, 0, sz);
+    popMatrix();
+  } //end display
+} //end class Tile
+
+class Tile5 {
+  int sz; //size of tile
+  int x; //x-coords of topleft corner on tile
+  int y; //y-coords of topleft corner on tile
+  int orient; // orientation of tile
+  
+  Tile5 (int x, int y, int w) {
+    this.x = x;
+    this.y = y;
+    sz = w;
+    orient = int(random(0,7));
+   } //end Tile
+  
+  void display() {
+    int r = int(random(palette.length));
+    fill(palette[r]);
+    stroke(palette[r]);
+    pushMatrix();
+    translate (x*2,y*2); //move to tile's x-y location (upper left corner)
+    translate(sz/2, sz/2); //move to the center of the tile
+    rotate(orient*PI/2); //rotate by the appropriate angle
+    translate(-sz/2, -sz/2); //move back to the upper left corner
+    triangle(sz, 0, sz, sz, 0, sz);
+    popMatrix();
+  } //end display
+} //end class Tile
+
+class Tile6 {
+  int sz; //size of tile
+  int x; //x-coords of topleft corner on tile
+  int y; //y-coords of topleft corner on tile
+  int orient; // orientation of tile
+  
+  Tile6 (int x, int y, int w) {
+    this.x = x;
+    this.y = y;
+    sz = w;
+    orient = int(random(0,7));
+   } //end Tile
+  
+  void display() {
+    int r = int(random(palette.length));
+    pushMatrix();
+    fill(palette[r]);
+    stroke(palette[r]);
+    
+    translate (x*2,y*2); //move to tile's x-y location (upper left corner)
+    translate(sz/2, sz/2); //move to the center of the tile
+    rotate(orient*PI/2); //rotate by the appropriate angle
+    translate(-sz/2, -sz/2); //move back to the upper left corner
+    triangle(sz, 0, sz, sz, 0, sz);
+    popMatrix();
+  } //end display
+} //end class Tile
